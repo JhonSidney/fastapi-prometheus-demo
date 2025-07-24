@@ -5,8 +5,11 @@ import random
 
 app = FastAPI()
 
-instrumentator = Instrumentator()
+# Cria o instrumentador
+instrumentator = Instrumentator().instrument(app).expose(app)
 
 @app.get("/ping")
 def ping():
+    # (Opcional) simula alguma latência
+    time.sleep(random.uniform(0.1, 0.5))
     return {"message": "pong"}
