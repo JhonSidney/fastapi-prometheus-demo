@@ -6,6 +6,7 @@ Este projeto demonstra como expor métricas de uma API FastAPI para o Prometheus
 - `/ping` – retorna "pong"
 - `/slow` – simula uma resposta lenta aleatória (para gerar métricas interessantes)
 - `/metrics` – endpoint de métricas para o Prometheus
+- /proxy-computers - retorna log ficticio de computers da Trend Micro de ataque cibernetico
 
  ## 🧪 Tecnologias
 
@@ -51,3 +52,24 @@ git checkout -b develop
 ```bash
 uvicorn app.main:app --reload
 ```
+### 🧠 Grafana
+
+#### 1. Realize a instalação do docker Caso não tenha.
+
+#### 2. Execute o Docker em um outro terminal
+```bash
+    docker-compose up
+```
+
+#### 3. Acesse o Grafana 
+ - Login: admin
+ - senha: admin
+
+#### 4. Adicione uma Data Source:
+- Clique em "Add data source"
+- Escolha "Prometheus"
+- Em URL coloque: 
+``` bash
+     http://prometheus:9090
+```
+- Clique em Save & Test
