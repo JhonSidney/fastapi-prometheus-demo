@@ -1,14 +1,14 @@
 # 📊 FastAPI + Prometheus Metrics Demo
-Este projeto demonstra como expor métricas de uma API FastAPI para o Prometheus e visualizá-las com Grafana.
+This project demonstrates how to expose metrics from a FastAPI API to Prometheus and visualize them using Grafana.
 
-## 🚀 Rotas da API
+## 🚀 List of API Routes
 
-- `/ping` – retorna "pong"
-- `/slow` – simula uma resposta lenta aleatória (para gerar métricas interessantes)
-- `/metrics` – endpoint de métricas para o Prometheus
-- /proxy-computers - retorna log ficticio de computers da Trend Micro de ataque cibernetico
+- `/ping` – return "pong"
+- `/slow` – Simulates a random slow response (to generate interesting metrics)
+- `/metrics` – An endpoint that exposes metrics for Prometheus
+- `/proxy-computers` - Returns a simulated Trend Micro computers log representing a cyber attack
 
- ## 🧪 Tecnologias
+ ## 🧪 Technologies
 
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [Prometheus](https://prometheus.io/)
@@ -16,14 +16,13 @@ Este projeto demonstra como expor métricas de uma API FastAPI para o Prometheus
 - [Uvicorn](https://www.uvicorn.org/)
 - [prometheus-fastapi-instrumentator](https://github.com/trallard/prometheus-fastapi-instrumentator)
 
-## ▶️ Como rodar
+## ▶️ Running the project
 
-#### 1. Criar ambiente virtual usando o python
+#### 1. Create a virtual environment using Python
 ```bash
 python3.9 -m venv venv
 ```
-#### 2. Ative o ambiente virtual
-- Linux
+#### 2. Activate the virtual environment
 ```bash
 source venv/bin/activate
 ```
@@ -32,44 +31,52 @@ source venv/bin/activate
 venv\Scripts\activate
 ```
 
-#### 3. Clone o repositório fora da pasta venv
+#### 3. Clone the repository outside the venv folder
 ```bash
 git clone https://github.com/seu-usuario/fastapi-prometheus-grafana-demo.git
 ```
-#### 4. Acesse a pasta do projeto
+#### 4. Navigate to the project folder
+
 ```bash
 cd fastapi-prometheus-grafana-demo
 ```
-#### 5. instale as dependências
+#### 5. Install the dependencies
 ```bash
 pip install -r requirements.txt
 ```
-#### 6. Crie e mude para a branch Develop
+#### 6. Create and switch to the develop branch
 ```bash
 git checkout -b develop
 ```
-#### 7. Rodar a API
+#### 7. Run the API
 ```bash
 uvicorn app.main:app --reload
 ```
 ### 🧠 Grafana
 
-#### 1. Realize a instalação do docker Caso não tenha.
+#### 1. Install Docker if you haven't already.
 
-#### 2. Execute o Docker em um outro terminal
+#### 2. In a separate terminal, run Docker:
 ```bash
     docker-compose up
 ```
+#### 3. Access Grafana
 
-#### 3. Acesse o Grafana 
- - Login: admin
- - senha: admin
+ - Login: `admin`
+ - Password: `admin`
 
-#### 4. Adicione uma Data Source:
-- Clique em "Add data source"
-- Escolha "Prometheus"
-- Em URL coloque: 
+#### 4. Add a Data Source:
+- Click on `Add data source`
+- Select "Prometheus"
+- In the URL field, enter:
 ``` bash
      http://prometheus:9090
 ```
-- Clique em Save & Test
+- Click "Save & Test"
+
+#### 5. Create a Dashboard
+
+- In the left menu, go to `Dashboards` > `New` > `New dashboard`
+- Click `Add visualization`
+- Select `Prometheus` as the data source
+- Save Dashboard
